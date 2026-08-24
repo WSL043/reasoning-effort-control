@@ -16,7 +16,7 @@ A framework-neutral, model-aware effort control for AI interfaces. It separates 
 ## Install
 
 ```sh
-npm install @wsl043/reasoning-effort-control
+npm install github:WSL043/reasoning-effort-control
 ```
 
 ```js

@@ -1,0 +1,17 @@
+{
+  "name": "@wsl043/reasoning-effort-control",
+  "version": "0.1.0",
+  "description": "Headless reasoning-effort controls and extensible visual renderers for model-aware AI interfaces",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": { ".": "./src/index.js", "./core": "./src/core.js", "./effects": "./src/effects.js", "./web-component": "./src/web-component.js", "./react": "./src/react.js" },
+  "files": ["src", "README.md", "LICENSE", "NOTICE"],
+  "scripts": { "test": "node --test tests/*.test.js", "check": "npm test && npm pack --dry-run" },
+  "keywords": ["reasoning-effort", "effort-slider", "thinking", "web-component", "headless-ui", "ai-ui"],
+  "author": "WSL043",
+  "license": "Apache-2.0",
+  "repository": "github:WSL043/reasoning-effort-control",
+  "bugs": { "url": "https://github.com/WSL043/reasoning-effort-control/issues" },
+  "homepage": "https://wsl043.github.io/reasoning-effort-control/",
+  "engines": { "node": ">=20" }
+}

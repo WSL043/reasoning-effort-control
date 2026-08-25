@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose a focused controller, adapter, accessibility, or renderer improvement.
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: Describe the user problem and the model capability shape involved.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain the desired API or interaction without assuming fixed effort labels.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Core scale and snapping
+        - Web Component
+        - React adapter
+        - Renderer API
+        - Accessibility and input
+        - Playground and documentation
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

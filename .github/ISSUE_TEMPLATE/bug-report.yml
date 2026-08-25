@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a reproducible problem with the controller, adapters, or renderers.
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 0.1.0 or a commit SHA
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, operating system, and framework or Web Component usage.
+      placeholder: Chrome 140, Windows 11, Web Component
+    validations:
+      required: true
+  - type: input
+    id: configuration
+    attributes:
+      label: Control configuration
+      description: Renderer, theme, current value, and the model-provided level IDs.
+      placeholder: cellular, dark, high, off/low/high/max
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: Include the smallest runnable example or playground steps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include visible errors or a short recording when useful. Remove credentials and private data.
+    validations:
+      required: true
+  - type: checkboxes
+    id: reduced_motion
+    attributes:
+      label: Motion and input checks
+      options:
+        - label: I checked keyboard interaction and the reduced-motion setting where relevant.

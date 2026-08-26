@@ -1,7 +1,7 @@
 {
   "name": "@wsl043/reasoning-effort-control",
-  "version": "0.1.0",
-  "description": "Headless reasoning-effort controls and extensible visual renderers for model-aware AI interfaces",
+  "version": "0.1.1",
+  "description": "Framework-neutral reasoning-effort control with model-aware levels and extensible visual renderers",
   "type": "module",
   "main": "./src/index.js",
   "exports": { ".": "./src/index.js", "./core": "./src/core.js", "./effects": "./src/effects.js", "./web-component": "./src/web-component.js", "./react": "./src/react.js" },

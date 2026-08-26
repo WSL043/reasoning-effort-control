@@ -1,6 +1,6 @@
 # Reasoning Effort Control
 
-A framework-neutral, model-aware effort control for AI interfaces. It separates model capabilities, continuous interaction, commit-time snapping, and visual feedback.
+A framework-neutral reasoning-effort control for AI interfaces, with model-aware levels and extensible visual renderers. It separates model capabilities, continuous interaction, commit-time snapping, and visual feedback.
 
 [Interactive playground](https://wsl043.github.io/reasoning-effort-control/) · [Report a bug](https://github.com/WSL043/reasoning-effort-control/issues/new/choose)
 
@@ -16,8 +16,10 @@ A framework-neutral, model-aware effort control for AI interfaces. It separates 
 ## Install
 
 ```sh
-npm install github:WSL043/reasoning-effort-control
+npm install @wsl043/reasoning-effort-control
 ```
+
+To install the latest source directly from GitHub instead, use `npm install github:WSL043/reasoning-effort-control`.
 
 ```js
 import '@wsl043/reasoning-effort-control/web-component'

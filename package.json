@@ -10,7 +10,10 @@
   "keywords": ["reasoning-effort", "effort-slider", "thinking", "web-component", "headless-ui", "ai-ui"],
   "author": "WSL043",
   "license": "Apache-2.0",
-  "repository": "github:WSL043/reasoning-effort-control",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSL043/reasoning-effort-control.git"
+  },
   "bugs": { "url": "https://github.com/WSL043/reasoning-effort-control/issues" },
   "homepage": "https://wsl043.github.io/reasoning-effort-control/",
   "engines": { "node": ">=20" }

@@ -1,15 +1,65 @@
-name: CI
+name: Risk-based CI
+
 on:
   push:
+    branches: [main]
   pull_request:
+
 permissions:
   contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      behavior: ${{ steps.plan.outputs.behavior }}
+      delivery: ${{ steps.plan.outputs.delivery }}
+      demo: ${{ steps.plan.outputs.demo }}
+    steps:
+      - uses: actions/checkout@v6
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v6
+        with: { node-version: 24, package-manager-cache: false }
+      - id: plan
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        shell: bash
+        run: |
+          published="$(npm view @wsl043/reasoning-effort-control dist-tags.latest)"
+          node scripts/ci-change-plan.mjs --base "$BASE_SHA" --published "$published"
+
+  behavior:
+    needs: plan
+    if: needs.plan.outputs.behavior == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
-        with:
-          node-version: 22
-      - run: npm run check
+        with: { node-version: 24, package-manager-cache: false }
+      - name: Run model-level, keyboard, renderer, and adapter behavior
+        run: npm run test:behavior
+
+  delivery:
+    needs: plan
+    if: needs.plan.outputs.delivery == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: 24, package-manager-cache: false }
+      - run: npm run test:delivery
+
+  demo:
+    needs: plan
+    if: needs.plan.outputs.demo == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: 24, package-manager-cache: false }
+      - name: Ensure the interactive example remains a static, publishable site
+        run: test -s demo/index.html && test -s demo/main.js && test -s demo/style.css
